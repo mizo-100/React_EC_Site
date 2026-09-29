@@ -1,14 +1,16 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { routes } from "../../../../config/routes";
 import { userSignout } from "../../../../features/auth/api/authApi";
-import { useCart } from "../../../../features/user/hooks/useCart";
+import { useCart } from "../../../../features/user/cart/hooks/useCart";
 import { useAuthStore } from "../../../../stores/authStore";
 import { Logo } from "../../../ui/Logo";
 
 export const Header = () => {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [searchKeyword, setSearchKeyword] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
 
   const user = useAuthStore((state) => state.user);
   const clearUser = useAuthStore((state) => state.clearUser);
@@ -16,6 +18,12 @@ export const Header = () => {
   const { data: cart } = useCart();
 
   const totalQuantity = cart?.itemCount ?? 0;
+
+  useEffect(() => {
+    setSearchKeyword(
+      new URLSearchParams(location.search).get("keyword") ?? "",
+    );
+  }, [location.search]);
 
   const closeUserMenu = () => {
     setIsUserMenuOpen(false);
@@ -43,7 +51,19 @@ export const Header = () => {
           <Logo />
         </Link>
 
-        <div className="relative min-w-0 flex-1">
+        <form
+          className="relative min-w-0 flex-1"
+          onSubmit={(event) => {
+            event.preventDefault();
+            const params = new URLSearchParams();
+            const keyword = searchKeyword.trim();
+            if (keyword) params.set("keyword", keyword);
+            navigate({
+              pathname: routes.home,
+              search: params.toString() ? `?${params}` : "",
+            });
+          }}
+        >
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -58,10 +78,14 @@ export const Header = () => {
 
           <input
             type="search"
+            value={searchKeyword}
+            onChange={(event) => setSearchKeyword(event.target.value)}
             placeholder="商品を検索..."
-            className="h-10 w-full rounded-full border border-gray-300 bg-gray-50 pl-11 pr-4 text-sm text-gray-700 outline-none transition placeholder:text-gray-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 sm:w-120"
+            aria-label="商品を検索"
+            className="h-10 w-full rounded-full border border-gray-300 bg-gray-50 pl-11 pr-12 text-sm text-gray-700 outline-none transition placeholder:text-gray-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 sm:w-120"
           />
-        </div>
+
+        </form>
 
         <div className="flex shrink-0 items-center gap-5">
           <Link

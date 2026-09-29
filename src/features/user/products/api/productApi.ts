@@ -1,12 +1,12 @@
 import {
-  keepPreviousData,
-  useMutation,
-  useQuery,
-  useQueryClient,
+    keepPreviousData,
+    useMutation,
+    useQuery,
+    useQueryClient,
 } from "@tanstack/react-query";
 import { axiosInstance } from "../../../../lib/axios";
 import { withCsrf } from "../../../../lib/csrf";
-import type { ProductDetail } from "../../../../types/product";
+import type { ProductDetail } from "../types/product";
 import type { ProductQueryParams } from "../types/productQuery";
 import type { ProductListResponse } from "../types/productResponse";
 

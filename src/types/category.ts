@@ -1,9 +1,8 @@
 export type Category = {
-  slug: string;
-  name: string;
-  createdAt: string;
+  slug: string
+  name: string
 }
 
 export type CategoriesResponse = {
-  categories: Category[];
+  categories: Category[]
 }

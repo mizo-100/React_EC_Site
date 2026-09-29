@@ -1,11 +1,11 @@
 import { useState } from "react";
 import {
-    type Admin,
-    useAddAdmin,
-    useAdmins,
-    useCurrentAdmin,
-    useDeleteAdmin,
-    useUpdateAdmin,
+  type Admin,
+  useAddAdmin,
+  useAdmins,
+  useCurrentAdmin,
+  useDeleteAdmin,
+  useUpdateAdmin,
 } from "../api/adminAdminsApi";
 import { AdminsTable } from "../components/AdminsTable";
 
@@ -142,7 +142,6 @@ export const AdminsPage = () => {
     }
   };
 
-   権限チェック
   const canManageAdmins = me?.role === "full";
 
   if (isPending) {

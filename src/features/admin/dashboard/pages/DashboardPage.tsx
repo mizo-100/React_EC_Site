@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { adminRoutes } from "../../../../config/admin/routes";
-import { adminAuthStore } from "../../../../stores/adminAuthStore ";
+import { adminAuthStore } from "../../../../stores/adminAuthStore";
 
 const summaryCards = [
   {

@@ -1,7 +1,2 @@
-import { axiosInstance } from "../../../../lib/axios";
-import type { CategoriesResponse } from "../../../../types/category";
-
-export const fetchCategories = async (): Promise<CategoriesResponse> => {
-  const { data } = await axiosInstance.get<CategoriesResponse>("/categories")
-  return data
-}
+export type { CategoriesResponse } from "../../../../types/category"
+export { fetchCategories } from "../../../categories/api/categoryApi"

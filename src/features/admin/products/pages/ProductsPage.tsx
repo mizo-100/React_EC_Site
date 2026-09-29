@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { CategorySelectButtons } from "../../../../components/CategorySelectButtons";
 import { ProductFilters } from "../../../../components/ProductFilters";
 import { adminRoutes } from "../../../../config/admin/routes";
-import { useCategories } from "../../../../hooks/useCategories";
+import { useCategories } from "../../../categories/hooks/useCategories";
 import { useCurrentAdmin } from "../../admins/api/adminAdminsApi";
 import { useAdminProducts } from "../api/productsApi";
 import { CsvButtons } from "../components/CsvButtons";

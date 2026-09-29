@@ -1,9 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import { routes } from "../../../../config/routes";
 import { useAuthStore } from "../../../../stores/authStore";
-import type { Product } from "../../../../types/product";
-import { useAddCartItem } from "../../hooks/useAddCartItem";
+import { useAddCartItem } from "../../cart/hooks/useAddCartItem";
 import { useProductLike } from "../api/productApi";
+import type { Product } from "../types/product";
 
 type ProductCardProps = {
   product: Product;

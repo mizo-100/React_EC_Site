@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { addCartItem } from "../cart/api/cartApi";
+import { addCartItem } from "../api/cartApi";
 
 export const useAddCartItem = () => {
   const queryClient = useQueryClient();
@@ -12,4 +12,4 @@ export const useAddCartItem = () => {
       });
     },
   });
-}
+};

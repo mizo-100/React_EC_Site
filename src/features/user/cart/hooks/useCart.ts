@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchCart } from "../cart/api/cartApi";
+import { fetchCart } from "../api/cartApi";
 
 export const cartQueryKey = ["cart"] as const;
 

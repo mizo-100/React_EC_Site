@@ -1,48 +1,14 @@
 import { NavLink } from "react-router-dom";
-import { adminRoutes } from "../../../config/admin/routes";
+import { adminIconItems, type AdminRole } from "../../../config/admin/iconItems";
 import { useCurrentAdmin } from "../../../features/admin/admins/api/adminAdminsApi";
 
-const getMenuItems = (role: "full" | "register" | "viewer" | undefined) => {
-  const items = [
-    {
-      to: adminRoutes.products,
-      label: "商品一覧",
-      icon: "▣",
-      show: true,
-    },
-    {
-      to: adminRoutes.productNew,
-      label: "商品新規登録",
-      icon: "+",
-      show: role !== "viewer",
-      },
-    {
-      to: "/admin/categories",
-      label: "カテゴリー管理",
-      icon: "◇",
-      show: role !== "viewer",
-    },
-    {
-      to: "/admin/admins",
-      label: "管理者管理",
-      icon: "♧",
-      show: role === "full",
-    },
-  ];
-
-  return items.filter((item) => item.show);
-};
-
 export const AdminSidebar = () => {
+  const {
+    data: me,
+  } = useCurrentAdmin();
 
-  const { data: me, error, isPending } = useCurrentAdmin();
-  const role = me?.role;
-  console.log("AdminSidebar: me =", me);
-  console.log("AdminSidebar: role =", role);
-  console.log("AdminSidebar: error =", error);
-  console.log("AdminSidebar: isPending =", isPending);
-
-  const menuItems = getMenuItems(role);
+  const role: AdminRole = me?.role;
+  const iconItems = adminIconItems(role);
 
 
   const roleLabel =
@@ -57,7 +23,7 @@ export const AdminSidebar = () => {
   return (
     <aside className="flex min-h-[calc(100vh-4rem)] w-52 shrink-0 flex-col border-r border-[#d9dfe6] bg-white">
       <nav className="pt-2">
-        {menuItems.map((item) => (
+        {iconItems.map((item) => (
           <NavLink
             key={item.to}
             to={item.to}
@@ -70,12 +36,13 @@ export const AdminSidebar = () => {
               ].join(" ")
             }
           >
-            <span
+            <img
+              src={item.icon}
+              alt=""
               aria-hidden="true"
-              className="w-4 text-center text-base text-gray-500"
-            >
-              {item.icon}
-            </span>
+              className="h-5 w-5 object-contain"
+            />
+
             <span>{item.label}</span>
           </NavLink>
         ))}

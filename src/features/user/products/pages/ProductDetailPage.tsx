@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { routes } from "../../../../config/routes";
 import { useAuthStore } from "../../../../stores/authStore";
-import { useAddCartItem } from "../../hooks/useAddCartItem";
+import { useAddCartItem } from "../../cart/hooks/useAddCartItem";
 import { useProduct } from "../api/productApi";
 
 export const ProductDetailPage = () => {

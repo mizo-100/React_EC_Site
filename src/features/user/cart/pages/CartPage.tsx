@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { routes } from "../../../../config/routes";
 import { getApiMessage } from "../../../../lib/getApiMessage";
-import { useCart } from "../../hooks/useCart";
+import { useCart } from "../hooks/useCart";
 import { useDeleteCartItem } from "../hooks/useDeleteCartItem";
 import { useUpdateCartItem } from "../hooks/useUpdateCartItem";
 
@@ -76,7 +76,7 @@ export const CartPage = () => {
           return (
             <article
               key={item.sku}
-              className="flex gap-4 rounded-xl bg-white p-4 shadow-sm"
+              className="flex items-center gap-4 rounded-xl bg-white p-4 shadow-sm"
             >
               <img
                 src={item.image}

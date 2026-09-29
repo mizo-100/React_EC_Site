@@ -3,8 +3,9 @@ type ProductFiltersProps = {
   minPrice: string;
   maxPrice: string;
   direction: "asc" | "desc";
+  searchOnChange?: boolean;
   onKeywordChange: (value: string) => void;
-  onSearch: () => void;
+  onSearch?: () => void;
   onMinPriceChange: (value: string) => void;
   onMaxPriceChange: (value: string) => void;
   onDirectionChange: (value: "asc" | "desc") => void;
@@ -15,6 +16,7 @@ export const ProductFilters = ({
   minPrice,
   maxPrice,
   direction,
+  searchOnChange = false,
   onKeywordChange,
   onSearch,
   onMinPriceChange,
@@ -34,21 +36,22 @@ export const ProductFilters = ({
                 onKeywordChange(event.target.value);
               }}
               onKeyDown={(event) => {
-                if (event.key === "Enter") {
-                  onSearch();
+                if (!searchOnChange && event.key === "Enter") {
+                  onSearch?.();
                 }
               }}
               placeholder="商品名を入力"
-              className="w-full rounded-lg border border-gray-300 px-3 py-02 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
             />
-
-            <button
-              type="button"
-              onClick={onSearch}
-              className="shrink-0 rounded-lg bg-blue-600 px-4 py-2 text-sm font-bold text-white hover:bg-blue-700"
-            >
-              検索
-            </button>
+            {!searchOnChange && onSearch && (
+              <button
+                type="button"
+                onClick={onSearch}
+                className="shrink-0 rounded-lg bg-blue-600 px-4 py-2 text-sm font-bold text-white hover:bg-blue-700"
+              >
+                検索
+              </button>
+            )}
           </div>
         </div>
 

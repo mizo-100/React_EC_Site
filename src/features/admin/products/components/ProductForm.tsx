@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { CategorySelectButtons } from "../../../../components/CategorySelectButtons";
-import { useCategories } from "../../../../hooks/useCategories";
+import { useCategories } from "../../../categories/hooks/useCategories";
 import { uploadProductImage } from "../api/productsApi";
 import type { ProductFormValues } from "../types/productFormValues";
 

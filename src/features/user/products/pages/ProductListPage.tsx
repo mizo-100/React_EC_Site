@@ -1,14 +1,16 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useSearchParams } from "react-router-dom"
 import { CategorySelectButtons } from "../../../../components/CategorySelectButtons"
 import { ProductFilters } from "../../../../components/ProductFilters"
-import { useCategories } from "../../../../hooks/useCategories"
+import { useCategories } from "../../../categories/hooks/useCategories"
 import { useProducts } from "../api/productApi"
 import { ProductCard } from "../components/ProductCard"
 
 export const ProductListPage = () => {
+  const [searchParams, setSearchParams] = useSearchParams()
+  const keyword = searchParams.get("keyword") ?? ""
   const [page, setPage] = useState(1)
-  const [keyword, setKeyword] = useState("")
-  const [inputKeyword, setInputKeyword] = useState("")
+  const [inputKeyword, setInputKeyword] = useState(keyword)
 
   const [selectedCategorySlugs, setSelectedCategorySlugs] =
     useState<string[]>([])
@@ -42,10 +44,22 @@ export const ProductListPage = () => {
     isError: isCategoriesError,
   } = useCategories()
 
-  const handleSearch = () => {
+  const handleKeywordChange = (value: string) => {
+    setInputKeyword(value)
     setPage(1)
-    setKeyword(inputKeyword)
+    const nextParams = new URLSearchParams(searchParams)
+    if (value) {
+      nextParams.set("keyword", value)
+    } else {
+      nextParams.delete("keyword")
+    }
+    setSearchParams(nextParams, { replace: true })
   }
+
+  useEffect(() => {
+    setInputKeyword(keyword)
+    setPage(1)
+  }, [keyword])
 
 
   if (isPending || isCategoriesPending) {
@@ -78,8 +92,8 @@ export const ProductListPage = () => {
           minPrice={minPrice}
           maxPrice={maxPrice}
           direction={direction}
-          onKeywordChange={setInputKeyword}
-          onSearch={handleSearch}
+          searchOnChange
+          onKeywordChange={handleKeywordChange}
           onMinPriceChange={(value) => {
             setMinPrice(value);
             setPage(1);
