@@ -43,15 +43,6 @@ export const ProductFilters = ({
               placeholder="商品名を入力"
               className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
             />
-            {!searchOnChange && onSearch && (
-              <button
-                type="button"
-                onClick={onSearch}
-                className="shrink-0 rounded-lg bg-blue-600 px-4 py-2 text-sm font-bold text-white hover:bg-blue-700"
-              >
-                検索
-              </button>
-            )}
           </div>
         </div>
 
