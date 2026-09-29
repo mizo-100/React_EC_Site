@@ -88,7 +88,7 @@ export const router = createBrowserRouter([
             element: <AdminProductDetailPage />,
           },
           {
-            path: "products/:sku/edit", // 追加
+            path: "products/:sku/edit",
             element: <AdminProductEditPage />,
           },
           {
