@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { adminIconItems, type AdminRole } from "../../../config/admin/iconItems";
 import { useCurrentAdmin } from "../../../features/admin/admins/api/adminAdminsApi";
+import { adminIconItems, type AdminRole } from "../../../libs/const/iconItems";
 
 export const AdminSidebar = () => {
   const {

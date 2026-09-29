@@ -1,10 +1,14 @@
 import { axiosInstance } from "./axios";
-import type { CsrfResponse } from "./types/csrf";
 
-let csrfToken: CsrfResponse | null = null;
+type CsrfResponseProps = {
+  headerName: string;
+  token: string;
+};
 
-export const refreshCsrfToken = async (): Promise<CsrfResponse> => {
-  const { data } = await axiosInstance.get<CsrfResponse>("/csrf");
+let csrfToken: CsrfResponseProps | null = null;
+
+export const refreshCsrfToken = async (): Promise<CsrfResponseProps> => {
+  const { data } = await axiosInstance.get<CsrfResponseProps>("/csrf");
 
   csrfToken = data;
 

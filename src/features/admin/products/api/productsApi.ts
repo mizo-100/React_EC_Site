@@ -1,10 +1,10 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { axiosInstance } from "../../../../lib/axios";
-import { withCsrf } from "../../../../lib/csrf";
+import { axiosInstance } from "../../../../libs/axios";
+import { withCsrf } from "../../../../libs/csrf";
 import type { ProductFormValues } from "../types/productFormValues";
 import type {
-  AdminProductsResponse,
-  PublicationStatus,
+    AdminProductsResponse,
+    PublicationStatus,
 } from "../types/products";
 
 

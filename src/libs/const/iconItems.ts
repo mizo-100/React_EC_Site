@@ -1,4 +1,4 @@
-import { adminRoutes } from "./routes";
+import { adminRoutes } from "../../config/admin/routes";
 
 export type AdminRole =
   | "full"

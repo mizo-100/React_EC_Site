@@ -1,5 +1,5 @@
-import { axiosInstance } from "../../../lib/axios";
-import { clearCsrfToken, refreshCsrfToken, withCsrf } from "../../../lib/csrf";
+import { axiosInstance } from "../../../libs/axios";
+import { clearCsrfToken, refreshCsrfToken, withCsrf } from "../../../libs/csrf";
 import type { User } from "../../../types/user";
 import type { LoginFormValues } from "../schemas/loginSchema";
 import type { SignupFormValues } from "../schemas/signupSchema";

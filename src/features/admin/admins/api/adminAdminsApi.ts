@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { axiosInstance } from "../../../../lib/axios";
-import { withCsrf } from "../../../../lib/csrf";
+import { axiosInstance } from "../../../../libs/axios";
+import { withCsrf } from "../../../../libs/csrf";
 import { adminName } from "../../auth/api/adminAuthApi";
 
 export type AdminRole = "full" | "register" | "viewer";

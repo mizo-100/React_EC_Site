@@ -1,9 +1,9 @@
-import { axiosInstance } from "../../../../lib/axios";
-import { withCsrf } from "../../../../lib/csrf";
+import { axiosInstance } from "../../../../libs/axios";
+import { withCsrf } from "../../../../libs/csrf";
 import type { CartResponse } from "../../../../types/cartResponse";
 import type {
-  AddCartItemInput,
-  UpdateCartItemInput,
+    AddCartItemInput,
+    UpdateCartItemInput,
 } from "../types/cartRequest";
 
 export const fetchCart = async (): Promise<CartResponse> => {

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { CategorySelectButtons } from "../../../../components/CategorySelectButtons";
 import { adminRoutes } from "../../../../config/admin/routes";
-import { getApiMessage } from "../../../../lib/getApiMessage";
+import { getApiMessage } from "../../../../libs/getApiMessage";
 import { adminAuthStore } from "../../../../stores/adminAuthStore";
 import { useCategories } from "../../../categories/hooks/useCategories";
 import {

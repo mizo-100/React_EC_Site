@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { routes } from "../../../../config/routes";
-import { getApiMessage } from "../../../../lib/getApiMessage";
+import { getApiMessage } from "../../../../libs/getApiMessage";
 import { adminAuthStore } from "../../../../stores/adminAuthStore";
 import { LoginForm } from "../../../auth/components/LoginForm";
 import { loginSchema, type LoginFormValues } from "../../../auth/schemas/loginSchema";

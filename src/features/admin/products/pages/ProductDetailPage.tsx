@@ -1,6 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { adminRoutes } from "../../../../config/admin/routes";
-import { getApiMessage } from "../../../../lib/getApiMessage";
+import { getApiMessage } from "../../../../libs/getApiMessage";
 import { useCurrentAdmin } from "../../admins/api/adminAdminsApi";
 import { useAdminProduct, useDeleteProduct } from "../api/productsApi";
 

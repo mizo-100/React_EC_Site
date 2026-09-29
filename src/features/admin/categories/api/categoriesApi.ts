@@ -1,8 +1,8 @@
-import { axiosInstance } from "../../../../lib/axios";
-import { withCsrf } from "../../../../lib/csrf";
+import { axiosInstance } from "../../../../libs/axios";
+import { withCsrf } from "../../../../libs/csrf";
 import type {
-  CategoriesResponse,
-  Category,
+    CategoriesResponse,
+    Category,
 } from "../../../../types/category";
 import type { CategorySaveInput } from "../types/categorySave";
 

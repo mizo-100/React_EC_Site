@@ -1,4 +1,4 @@
-import { axiosInstance } from "../../../../lib/axios";
+import { axiosInstance } from "../../../../libs/axios";
 
 export const getDashboardStats = async () => {
   const [categories, products] = await Promise.all([

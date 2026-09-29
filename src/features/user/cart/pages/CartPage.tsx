@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { routes } from "../../../../config/routes";
-import { getApiMessage } from "../../../../lib/getApiMessage";
+import { getApiMessage } from "../../../../libs/getApiMessage";
 import { useCart } from "../hooks/useCart";
 import { useDeleteCartItem } from "../hooks/useDeleteCartItem";
 import { useUpdateCartItem } from "../hooks/useUpdateCartItem";

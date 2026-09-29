@@ -1,4 +1,4 @@
-import { axiosInstance } from "../../../lib/axios"
+import { axiosInstance } from "../../../libs/axios"
 import type { CategoriesResponse } from "../../../types/category"
 
 export const fetchCategories = async (): Promise<CategoriesResponse> => {
