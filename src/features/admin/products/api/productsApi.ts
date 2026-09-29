@@ -3,44 +3,12 @@ import { axiosInstance } from "../../../../libs/axios";
 import { withCsrf } from "../../../../libs/csrf";
 import type { ProductFormValues } from "../types/productFormValues";
 import type {
-    AdminProductsResponse,
-    PublicationStatus,
+  AdminProductsParams,
+  AdminProductsResponse,
+  Product,
+  ProductCreateResponse,
+  ProductImageUploadResponse,
 } from "../types/products";
-
-
-export type AdminProductsParams = {
-  page: number;
-  size: number;
-  keyword?: string;
-  categorySlugs?: string[];
-  minPrice?: number;
-  maxPrice?: number;
-  publicationStatus?: PublicationStatus;
-  sort?: string;
-  direction?: "asc" | "desc";
-};
-
-export type Product = {
-  sku: string;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-  publicationStatus?: PublicationStatus;
-  likeCount?: number;
-  categories: { slug: string; name: string }[];
-  createdAt: string;
-  updatedAt: string;
-};
-
-export type ProductImageUploadResponse = {
-  key: string;
-  url: string;
-};
-
-export type ProductCreateResponse = {
-  sku: string;
-};
 
 export const getAdminProducts = async (
   params: AdminProductsParams,
